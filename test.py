@@ -23,6 +23,7 @@ _10_zhiding = u'10 zhǐdìng'
 _11_yi1_yi4 = u'11 yī; yì'
 _12_nanguo_langxingoufei_er_eryide = u'12 nánguò // lángxīngǒufèi // èr’ěryīde'
 _13_trailing = u'hánshùshì[de]'
+_14_aiai = u'àiài'
 
 
 class IgnoreLinksNodeFilterTestCase(unittest.TestCase):
@@ -171,6 +172,8 @@ class ColorizedHTMLStringTestCase(unittest.TestCase):
                              u'<span class="pinYinWrapper">12 <span class="t2">nán</span><span class="t4">guò</span> // <span class="t2">láng</span><span class="t1">xīn</span><span class="t3">gǒu</span><span class="t4">fèi</span> // <span class="t4">èr</span>’<span class="t3">ěr</span><span class="t1">yī</span><span class="t0">de</span></span>')
         self.assertEqual(cmd(_13_trailing),
                              u'<span class="pinYinWrapper"><span class="t2">hán</span><span class="t4">shù</span><span class="t4">shì</span>[<span class="t0">de</span>]</span>')
+        self.assertEqual(cmd(_14_aiai),
+                             u'<span class="pinYinWrapper"><span class="t4">ài</span><span class="t4">ài</span></span>')
         self.assertEqual(cmd('nothing here.'), None)
         # uppercase?
         self.assertEqual(cmd('À!'), u'<span class="pinYinWrapper"><span class="t4">À</span>!</span>')
@@ -207,6 +210,7 @@ class ColorizedHTMLElementTestCase(unittest.TestCase):
                   _11_yi1_yi4,
                   _12_nanguo_langxingoufei_er_eryide,
                   _13_trailing,
+                  _14_aiai,
                   'nothing here.']:
             self.assertEqual(self.cmd(x), self.should_be(x))
 
